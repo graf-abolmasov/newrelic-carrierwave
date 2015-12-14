@@ -21,7 +21,7 @@ DependencyDetection.defer do
             def call_move_to_with_newrelic_trace(new_path, permissions=nil, directory_permissions=nil)
                 metrics = ["External/CarrierWave/Fog/move_to"]
 
-                if NewRelic::Agent::Instrumentation::MetricFrame.recording_web_transaction?
+                if NewRelic::Agent::Transaction.recording_web_transaction?
                     total_metric = 'External/allWeb'
                 else
                     total_metric = 'External/allOther'
@@ -36,7 +36,7 @@ DependencyDetection.defer do
             def call_copy_to_with_newrelic_trace(new_path, permissions=nil, directory_permissions=nil)
                 metrics = ["External/CarrierWave/Fog/move_to"]
 
-                if NewRelic::Agent::Instrumentation::MetricFrame.recording_web_transaction?
+                if NewRelic::Agent::Transaction.recording_web_transaction?
                     total_metric = 'External/allWeb'
                 else
                     total_metric = 'External/allOther'
@@ -62,7 +62,7 @@ DependencyDetection.defer do
             def call_authenticted_url_with_newrelic_trace(options = {})
                 metrics = ["External/CarrierWave/Fog/authenticated_url"]
 
-                if NewRelic::Agent::Instrumentation::MetricFrame.recording_web_transaction?
+                if NewRelic::Agent::Transaction.recording_web_transaction?
                     total_metric = 'External/allWeb'
                 else
                     total_metric = 'External/allOther'
@@ -77,7 +77,7 @@ DependencyDetection.defer do
             def call_public_url_with_newrelic_trace
                 metrics = ["External/CarrierWave/Fog/public_url"]
 
-                if NewRelic::Agent::Instrumentation::MetricFrame.recording_web_transaction?
+                if NewRelic::Agent::Transaction.recording_web_transaction?
                     total_metric = 'External/allWeb'
                 else
                     total_metric = 'External/allOther'
@@ -103,7 +103,7 @@ DependencyDetection.defer do
             def call_store_with_newrelic_trace(file)
                 metrics = ["External/CarrierWave/Fog/store"]
 
-                if NewRelic::Agent::Instrumentation::MetricFrame.recording_web_transaction?
+                if NewRelic::Agent::Transaction.recording_web_transaction?
                     total_metric = 'External/allWeb'
                 else
                     total_metric = 'External/allOther'
@@ -118,7 +118,7 @@ DependencyDetection.defer do
             def call_retrieve_with_newrelic_trace(identifier)
                 metrics = ["External/CarrierWave/Fog/retrieve"]
 
-                if NewRelic::Agent::Instrumentation::MetricFrame.recording_web_transaction?
+                if NewRelic::Agent::Transaction.recording_web_transaction?
                     total_metric = 'External/allWeb'
                 else
                     total_metric = 'External/allOther'
